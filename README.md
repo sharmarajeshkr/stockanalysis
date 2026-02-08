@@ -1,57 +1,41 @@
-# Stock Analysis Project
+# Nifty IT Sector Analysis with Random Forest
 
-This project predicts stock price movements using technical indicators and a Random Forest classifier. It features a FastAPI backend and a React (Vite) frontend.
+This project performs trend analysis and prediction on the Nifty IT sector using an **Enhanced Random Forest Classifier**. It uses 10 years of historical data to train a model that predicts whether a stock's trend is likely to be positive ("GOOD") or negative ("NOT GOOD") over the next 20 days.
 
-## Project Structure
-```
-d:/Stock_Analysis/
-├── backend/            # FastAPI backend
-├── data/               # Data fetching logic (Refactored with Providers)
-├── features/           # Feature engineering
-├── frontend/           # React frontend
-├── models/             # Model training logic
-├── tests/              # Unit tests
-├── config.py           # Configuration parameters
-├── main.py             # CLI entry point
-├── sector_analysis.py  # Sector analysis script
-├── start_app.bat       # One-click launch script
-└── requirements.txt    # Dependencies
-```
+## Prerequisites
 
-## Setup & Usage
+- Python 3.10+
+- Scikit-learn, Pandas, NumPy, Yfinance, Joblib, Ta, Matplotlib
 
-### 1. Install Dependencies
+Install dependencies:
 ```bash
 pip install -r requirements.txt
-cd frontend
-npm install
-cd ..
 ```
 
-### 2. Start the Application
-The easiest way to run the application is using the provided batch script:
-- Double-click **`start_app.bat`** in the root directory.
-- This will launch both the Backend API and the Frontend Application, and open your browser to `http://localhost:5173`.
+## Usage
 
-### 3. CLI Usage
-You can also run analysis scripts directly:
+### 1. Model Training
+Run the training script to fetch 10 years of Nifty IT data, engineer features (RSI, MACD, etc.), and train the Random Forest model.
 ```bash
-# Run analysis for a single stock (configured in config.py)
-python main.py
-
-# Run sector-wide analysis
-python sector_analysis.py
+python train_sector.py
 ```
+This will save the trained model to `models/sector_model.joblib`.
 
-## Implementation Plan Summary
-
-Recent updates have focused on improving code modularity and reliability.
-
--   **Data Fetching Refactoring**: Decoupled `yfinance` dependency by introducing a `StockDataProvider` interface and `YFinanceProvider` implementation. This allows for easy swapping of data sources in the future.
--   **Unit Testing**: Added a `tests` suite using `unittest` to verify the data fetching layer, ensuring robustness.
--   **Launch Automation**: Created `start_app.bat` to streamline the startup process for both backend and frontend components.
-
-For full details, please refer to the [Implementation Plan](implementation_plan.md).
+### 2. Prediction and Analysis
+Generate the sector forecast and visualization:
+```bash
+python predict_sector.py
+```
+This will:
+- Load the saved Random Forest model.
+- Fetch the latest stock data.
+- Generate predictions and confidence scores.
+- Save results to `sector_results.csv`.
+- Generate a visual overview in `sector_overview.png`.
+- Display a summary in the console.
 
 ## Configuration
-Modify `config.py` to change the ticker, start date, or model parameters.
+Edit `config.py` to adjust settings:
+- `START_DATE`: Historical data start date (calculated as 10 years ago).
+- `FORECAST_HORIZON`: Prediction length (default: 20 days).
+- `N_ESTIMATORS`: Number of trees in the Random Forest (default: 200).

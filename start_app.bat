@@ -3,6 +3,10 @@ echo ==========================================
 echo Starting Stock Analysis Application
 echo ==========================================
 
+echo CHECKING AND UPDATING SECTOR DATA...
+python predict_sector.py
+echo Data update complete.
+
 echo Starting Backend API...
 start "Backend API" cmd /k "python backend/api.py"
 

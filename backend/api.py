@@ -8,7 +8,8 @@ import pandas as pd
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from main import run_analysis
-from sector_analysis import get_sector_analysis
+
+# from sector_analysis import get_sector_analysis # Deprecated
 from backend.logger import setup_logger
 
 logger = setup_logger("API")
@@ -33,10 +34,27 @@ def health_check():
 def sector_analysis_endpoint():
     logger.info("Request: GET /api/sector-analysis")
     try:
-        # Try to read from CSV first for speed, or run analysis if needed
-        # For now, let's trigger the analysis to ensure freshness, or can implement caching
-        # Calling the refactored function
-        data = get_sector_analysis()
+        csv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sector_results.csv")
+        
+        if not os.path.exists(csv_path):
+             # Trigger analysis if file doesn't exist? Or just return empty/error.
+             # Better to return error or empty list and let user run prediction manually or via another endpoint.
+             logger.warning("sector_results.csv not found.")
+             return []
+
+        df = pd.read_csv(csv_path)
+        
+        # Renaissance columns to match frontend expectations
+        # Frontend expects: Ticker, Price, 30d_Change, Prediction, Confidence, CV_Accuracy
+        # CSV has: Ticker, Price, Prediction, Confidence, 30d_Hist_Return
+        
+        df.rename(columns={"30d_Hist_Return": "30d_Change"}, inplace=True)
+        
+        # Add missing columns
+        if "CV_Accuracy" not in df.columns:
+            df["CV_Accuracy"] = 0.0 # Placeholder
+            
+        data = df.to_dict(orient="records")
         logger.info(f"Returning sector analysis for {len(data)} stocks")
         return data
     except Exception as e:
