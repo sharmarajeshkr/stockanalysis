@@ -1,0 +1,495 @@
+/* Component Containers */
+.widgetContainer {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.title {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Time Filters (Pills) */
+.filterGroup {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filterChip {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.filterChip:hover {
+    background: #f5f5f5;
+}
+
+.filterChip.active {
+    background: #e8f3ff;
+    /* Very light blue/primary bg */
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 500;
+}
+
+/* Market Movers Tabs */
+.tabsContainer {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.tabButton {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.tabButton.active {
+    background: var(--text-main);
+    /* Dark background for active tab in reference */
+    color: white;
+    border-color: var(--text-main);
+}
+
+/* Movers List Row */
+.moverRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.moverRow:last-child {
+    border-bottom: none;
+}
+
+.companyInfo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.logoBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-weight: bold;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.priceInfo {
+    text-align: right;
+}
+
+/* Sector Trending */
+.sectorRow {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sectorIcon {
+    width: 32px;
+    height: 32px;
+    margin-right: 1rem;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.sectorName {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text-main);
+    min-width: 150px;
+}
+
+.barContainer {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0 2rem;
+    height: 4px;
+    background: #eee;
+    border-radius: 2px;
+    overflow: hidden;
+    min-width: 100px;
+}
+
+.barGreen {
+    background-color: var(--accent);
+    height: 100%;
+}
+
+.barRed {
+    background-color: var(--red-accent);
+    height: 100%;
+}
+
+.counts {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.percentChange {
+    width: 80px;
+    text-align: right;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+/* Trading Screens (Sidebar) */
+.screenItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.screenItem:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+}
+
+.badge.bullish {
+    background: #e6fcf5;
+    color: var(--accent);
+}
+
+.badge.bearish {
+    background: #ffebe9;
+    color: var(--red-accent);
+}
+
+.screenName {
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.miniChart {
+    width: 60px;
+    height: 30px;
+    opacity: 0.7;
+}
+
+/* Sector Catalog */
+.catalogContainer {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.catalogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.catalogSection {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.catalogHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.catalogTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.viewAllBtn {
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.assetList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modalContent {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.sectorGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.primaryBtn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Stock Table for Sector Detail */
+.stockTableContainer {
+    margin-top: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+/* ============================================
+   RESPONSIVE STYLES FOR WIDGETS
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .catalogGrid {
+        grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+        gap: 1.5rem;
+    }
+
+    .sectorGrid {
+        grid-template-columns: repeat(auto-fill, minmax(min(150px, 45%), 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .widgetContainer {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .sectionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filterGroup,
+    .tabsContainer {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex-wrap: nowrap;
+    }
+
+    .filterGroup::-webkit-scrollbar,
+    .tabsContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+    .catalogGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .catalogSection {
+        padding: 1rem;
+    }
+
+    .sectorRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .barContainer {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .percentChange {
+        width: 100%;
+        text-align: left;
+    }
+
+    .moverRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .companyInfo {
+        width: 100%;
+    }
+
+    .priceInfo {
+        width: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+
+    .sectorGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .modalContent {
+        padding: 1.5rem 1rem;
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .modalFooter {
+        flex-direction: column;
+    }
+
+    .primaryBtn {
+        width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .widgetContainer {
+        padding: 0.75rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .filterChip,
+    .tabButton {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .logoBox {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .modalContent {
+        padding: 1rem 0.75rem;
+    }
+}

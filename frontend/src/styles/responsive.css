@@ -1,0 +1,363 @@
+/* =================================================================
+   RESPONSIVE DESIGN - MOBILE & TABLET
+   ================================================================= */
+
+/* Container adjustments for all screen sizes */
+.header-content,
+.sub-nav {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .header-content {
+        padding: 0 1.5rem;
+        gap: 1rem;
+    }
+
+    .sub-nav {
+        padding: 0 1.5rem;
+    }
+
+    .search-bar-header {
+        max-width: 200px;
+    }
+
+    .main-nav {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .dashboard-content {
+        padding: 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+
+    /* Widget specific adjustments */
+    .app-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* Dashboard grid - stack columns on tablet */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .main-feed,
+    .side-widgets {
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    /* Force 100% width on all containers */
+    .app-container,
+    .header-content,
+    .sub-nav,
+    .dashboard-content {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .header-content {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 0.75rem;
+    }
+
+    .logo-section {
+        font-size: 1rem;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.5rem 0;
+        gap: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .main-nav::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .nav-link {
+        white-space: nowrap;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+    }
+
+    .search-bar-header {
+        display: none;
+        /* Hide search on mobile to save space */
+    }
+
+    .user-actions {
+        gap: 0.75rem;
+    }
+
+    .sub-nav {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        height: auto;
+        min-height: 40px;
+    }
+
+    .sub-nav-item {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .dashboard-content {
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Login page mobile */
+    .login-container {
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .login-card {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .primary-btn {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* Widget containers - make full width */
+    .stock-card-widget {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    /* Tables - make scrollable on mobile */
+    table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Reduce padding in table cells on mobile */
+    th,
+    td {
+        padding: 0.5rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Form groups */
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group input[type="email"] {
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Market indices */
+    .indices-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Asset details */
+    .asset-details {
+        padding: 1rem;
+    }
+
+    /* Widget specific adjustments */
+    .catalog-grid,
+    .sector-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Charts - make responsive */
+    .recharts-wrapper {
+        width: 100% !important;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .logo-section {
+        font-size: 0.9rem;
+    }
+
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .user-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        padding: 0.25rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    .dashboard-content {
+        padding: 0.75rem;
+    }
+
+    .header-content {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .sub-nav {
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Even smaller buttons and inputs */
+    button {
+        font-size: 0.9rem;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .login-container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        align-items: center;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    .login-card h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .login-subtitle {
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Very wide screens - limit container width */
+@media (min-width: 1600px) {
+
+    .header-content,
+    .sub-nav {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .dashboard-content {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}
+
+/* Dark mode media query preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --text-main: #e0e0e0;
+        --text-secondary: #a0a0a0;
+        --border-color: #3a3a3a;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    .main-header,
+    .sub-nav,
+    .user-actions,
+    button {
+        display: none;
+    }
+
+    .dashboard-content {
+        padding: 0;
+    }
+
+    * {
+        background: white !important;
+        color: black !important;
+    }
+}
